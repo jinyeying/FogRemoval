@@ -27,11 +27,11 @@ Cityscapes/generate_haze_cityscapes.m
 
 ```
 
-### 2. [FogMachine]
+### 2. [Smoke Dataset](https://www.dropbox.com/sh/idkg762ni884gpi/AACBfFJMepnNzW0J2N-e_Upja?dl=0)
 ```
 ${FogRemoval}
 |-- Dataset_day
-    |-- FogMachine
+    |-- Smoke
       |-- train
          |-- hazy
          |-- clean
