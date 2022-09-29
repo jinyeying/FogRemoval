@@ -17,7 +17,7 @@ ${FogRemoval}
       |-- leftImg8bit 
       |-- train
          |-- hazy
-         |-- clean
+         |-- clean 
       |-- generate_haze_cityscapes.m
 ```
       
@@ -35,4 +35,10 @@ ${FogRemoval}
       |-- train
          |-- hazy
          |-- clean
+      |-- test
+         |-- hazy  (12)
+         |-- clean (12)  
 ```
+<p align="left">
+  <img width=950" src="teaser/smoke.PNG">
+</p>
