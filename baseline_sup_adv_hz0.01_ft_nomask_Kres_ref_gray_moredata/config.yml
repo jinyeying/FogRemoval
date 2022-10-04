@@ -1,0 +1,110 @@
+exp_name: 'baseline_sup_adv_hz0.01_ft_nomask_Kres_ref_gray_moredata'
+
+#######################################
+# datasets and loaders
+#######################################
+paired_datasets: ['cityscapes_train','O-HAZE','I-HAZE','Dense-HAZE','utrecht_yuri_sub','utrecht_bike_sub']
+
+dirty_datasets: ['utrecht_yuri_ref_gray', 'utrecht_bike_ref_gray']
+
+clean_datasets: ['streetv_utrecht_bike_v2']
+
+batch_size_train: 12
+
+image_size_train: !!python/tuple [256,256]
+# image_size_train: !!python/tuple [512,512]
+
+paired_testsets: ['O-HAZE', 'O-HAZE-test', 'cityscapes_test']
+unpaired_testsets: ['utrecht_yuri', 'utrecht_bike']
+
+image_size_test: !!python/tuple [256,256]
+# image_size_test: !!python/tuple [512,512]
+batch_size_test: 1
+
+#######################################
+# model parameters
+#######################################
+gen:
+  image_model: 'JA-AnalyticA'           # direct | k | (t|t3)A(v|m)-(parallel|A-first|t-first) |
+  alter_grad_up: False                  # only when the estimation is in parallel
+  A_method: 'he_cc'                     # he_cc | he | sp_cc | gray
+  norm_input: 'chr'                     # chr | rgb
+  clamp_latent: False
+  netG:
+    model: 'resnet_9blocks_K'
+    dim: 64
+    norm: 'batch'
+  netA:
+    model: 'n_layers'     
+    n_layers: 5
+    dim: 64
+    norm: 'batch'
+dis:
+  enable: ['gray']
+#  enable: []
+  weight: [1.0]
+  _global_settings: &global_settings
+    model: 'n_layers'   
+    n_layers: 3
+    dim: 64
+    norm: 'instance'
+    use_lsgan: False
+  gray:
+    <<: *global_settings
+  blur:
+    <<: *global_settings
+  rgb:
+    <<: *global_settings
+  sat:
+    <<: *global_settings
+
+#######################################
+# loss and optimizations
+#######################################
+pixelwise_loss:
+  is_gray: False
+perceptual_loss:
+  model: 'vgg19_5_4'
+  norm: False
+  is_gray: False
+hazeline_loss:
+  use_chromaticity: True
+  weighted_average: False
+  norm_input: True
+gray_loss:
+  weighted_average: False
+distance_pre_loss:
+  use_chromaticity: True
+TV_type: 'En'             # En | Eq
+
+two_phase: False
+
+wG_mse: 1.0
+wG_perc: 1.0              
+
+wD_paired: 0.05
+wG_adv: 0.005
+wG_adv_paired: 0.95
+
+wG_hazeline: 0.01  
+wG_tv: 0.0        
+wG_graytrans: 0.0
+wG_A: 0.0
+wG_distant: 0.0
+wG_distance_pre: 0.0 
+wG_sat_pre: 0.0
+
+# optimizer
+lr: 0.00005 #0.0002
+beta1: 0.9
+
+# training details
+# resume: './baseline_sup_adv_hz0.01_ft_nomask_res/models/checkpoint.current.ckpt'
+resume: False
+epochs: 1000
+checkpoint_epochs: 10
+finetune: True
+start_epoch: 1
+
+pool_size: 128
+workers: 4

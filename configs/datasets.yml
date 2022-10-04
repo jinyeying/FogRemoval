@@ -1,0 +1,7 @@
+smoke_machine:
+  root_dirs:
+    - './smoke_machine/'
+
+test_haze:
+  root_dirs:
+    - './test_input/'

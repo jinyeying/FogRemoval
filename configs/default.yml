@@ -1,0 +1,105 @@
+exp_name: 'default_test'
+
+#######################################
+# datasets and loaders
+#######################################
+paired_datasets: ['cityscapes_train']
+
+dirty_datasets: ['utrecht_yuri', 'utrecht_bike']
+
+clean_datasets: ['streetv_utrecht_bike_v2']
+
+batch_size_train: 16
+image_size_train: !!python/tuple [256,256]
+
+paired_testsets: ['O-HAZE', 'O-HAZE-test', 'cityscapes_test']
+unpaired_testsets: ['utrecht_yuri', 'utrecht_bike']
+
+image_size_test: !!python/tuple [256,256]
+batch_size_test: 1
+
+#######################################
+# model parameters
+#######################################
+gen:
+  image_model: 'JA-AnalyticA'             
+  alter_grad_up: False                    
+  A_method: 'he_cc'                       # he_cc | he | sp_cc | gray
+  norm_input: 'chr'                       # chr | rgb
+  clamp_latent: False
+  netG:
+    model: 'unet_256'
+    dim: 64
+    norm: 'batch'
+  netA:
+    model: 'n_layers'     
+    n_layers: 5
+    dim: 64
+    norm: 'batch'
+dis:
+  enable: ['gray']
+  weight: [1.0]
+  _global_settings: &global_settings
+    model: 'n_layers'  
+    n_layers: 3
+    dim: 64
+    norm: 'instance'
+    use_lsgan: False
+  gray:
+    <<: *global_settings
+  blur:
+    <<: *global_settings
+  rgb:
+    <<: *global_settings
+  sat:
+    <<: *global_settings
+
+#######################################
+# loss and optimizations
+#######################################
+pixelwise_loss:
+  is_gray: False
+perceptual_loss:
+  model: 'vgg19_5_4'
+  norm: False
+  is_gray: False
+hazeline_loss:
+  use_chromaticity: True
+  weighted_average: False
+  norm_input: True
+gray_loss:
+  weighted_average: False
+distance_pre_loss:
+  use_chromaticity: True
+TV_type: 'En'             
+
+two_phase: False
+
+wG_mse: 1.0
+wG_perc: 1.0          
+
+wD_paired: 0.05
+wG_adv: 0.005
+wG_adv_paired: 0.95
+
+wG_hazeline: 0.0 
+wG_tv: 0.0       
+wG_graytrans: 0.0
+wG_A: 0.0
+wG_distant: 0.0
+wG_distance_pre: 0.0 
+wG_sat_pre: 0.0
+
+# optimizer
+lr: 0.0002
+beta1: 0.9
+
+# training details
+# resume: './default/models/checkpoint.current.ckpt'
+resume: False
+epochs: 2000
+checkpoint_epochs: 20
+finetune: True
+
+pool_size: 128
+workers: 4
