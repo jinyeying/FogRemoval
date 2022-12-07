@@ -35,6 +35,9 @@ ${FogRemoval}
 
 [Ours Results](https://www.dropbox.com/sh/d1xpyqav1uoqcfy/AABAgO6MoohQ8yV02aRZmU66a?dl=0)
 
+[Baseline Results](https://www.dropbox.com/sh/nsbqnou4hqkeh1s/AAAkCKQVWdgR4WxOR-zRM16Aa?dl=0)
+We provide the baseline results of DehazeFormer'22, Dehamer'22, D4'22, PSD'21, 4K'21, MSBDN'20, etc..
+
 ### 2. [Fog Cityscapes](https://www.dropbox.com/sh/mc5ffqsnt4v51tb/AAA34D0md0arAtabonmVVn0Oa?dl=0)
 ```
 ${FogRemoval}
