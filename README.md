@@ -18,11 +18,11 @@
 ```
 ${FogRemoval}
 |-- Dataset_day
-    |-- Smoke
+    |-- Smoke (https://www.dropbox.com/home/badweather/ACCV2022_defog/Dataset_day/Smoke)
       |-- train (110 pairs)
          |-- hazy  
          |-- clean
-      |-- test (12 pairs)
+      |-- [test] (12 pairs) 
          |-- hazy  
          |-- clean  
 ```
