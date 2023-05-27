@@ -71,7 +71,7 @@ Cityscapes/generate_haze_cityscapes.m
 </p>
 
 If smoke data is useful for your research, please cite our paper. 
-```
+```BibTeX
 @InProceedings{Jin_2022_ACCV,
     author    = {Jin, Yeying and Yan, Wending and Yang, Wenhan and Tan, Robby T.},
     title     = {Structure Representation Network and Uncertainty Feedback Learning for Dense Non-Uniform Fog Removal},
