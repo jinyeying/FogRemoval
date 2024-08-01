@@ -14,8 +14,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/structure-representation-network-and/image-dehazing-on-dense-haze)](https://paperswithcode.com/sota/image-dehazing-on-dense-haze?p=structure-representation-network-and)
 
 ## Datasets
-### 1. [SMOKE Dataset](https://www.dropbox.com/sh/g30b8n308ftbrcl/AAA69OSu5DnOGyiyt9cG4pmma?dl=0)
-[The Fog Machine Antari W-515D](https://antari.com/products/w-515d/)
+### 1. SMOKE Dataset [Dropbox](https://www.dropbox.com/sh/g30b8n308ftbrcl/AAA69OSu5DnOGyiyt9cG4pmma?dl=0) | [BaiduPan](https://pan.baidu.com/s/1UnxflnOsifugwU1fE4rvhg?pwd=smok) code:smok 
 ```
 ${FogRemoval}
 |-- Dataset_day
@@ -31,23 +30,26 @@ ${FogRemoval}
   <img width=950" src="teaser/smoke.png">
 </p>
 
-[[SMOKE Train]](https://www.dropbox.com/sh/wg38snebqnw18l4/AAArLgzWBoA6Zf_Nhzn5elgRa?dl=0)
-[[SMOKE Test]](https://www.dropbox.com/sh/idkg762ni884gpi/AACBfFJMepnNzW0J2N-e_Upja?dl=0)
-[[Ours Results]](https://www.dropbox.com/sh/d1xpyqav1uoqcfy/AABAgO6MoohQ8yV02aRZmU66a?dl=0)
+| SMOKE Dataset | [Dropbox](https://www.dropbox.com/sh/g30b8n308ftbrcl/AAA69OSu5DnOGyiyt9cG4pmma?dl=0) | [BaiduPan](https://pan.baidu.com/s/1UnxflnOsifugwU1fE4rvhg?pwd=smok) code:smok |
+| :-----------: | :-----------: |:-----------: |
+|Fog Cityscapes | [Dropbox](https://www.dropbox.com/sh/mc5ffqsnt4v51tb/AAA34D0md0arAtabonmVVn0Oa?dl=0) | [BaiduPan](https://pan.baidu.com/s/1vAk13UtgJErWmAbZLaPLJw?pwd=dfv2) code:dfv2
 
-[[Dense-HAZE]](https://www.dropbox.com/sh/zo6sycm9gp9g5s7/AACJlDps7DkMn4fit-_MgDC8a?dl=0)
-[[NH-HAZE]](https://www.dropbox.com/sh/udnkp537pdw6kku/AACqvsPUW_JmEI_kVCNkIVuQa?dl=0)
-[[O-HAZE]](https://www.dropbox.com/sh/lzuhwrw4gm5nb8j/AACImJSX02Beck8-T9Sy2Nega?dl=0)
+| Our SMOKE Results | [Dropbox](https://www.dropbox.com/sh/d1xpyqav1uoqcfy/AABAgO6MoohQ8yV02aRZmU66a?dl=0) | [BaiduPan](https://pan.baidu.com/s/1SLAbYOX1EDSckONJKSYaXg?pwd=goq0) code:goq0 |
+| :---------------: | :-----------: |:-----------: |
+|Our Dense-HAZE Results|[Dropbox](https://www.dropbox.com/sh/zo6sycm9gp9g5s7/AACJlDps7DkMn4fit-_MgDC8a?dl=0) | [BaiduPan](https://pan.baidu.com/s/1dwMRacxJuUnwPPJZsR5MQA?pwd=p1rn) code:p1rn|
+|Our NH-HAZE Results   |[Dropbox](https://www.dropbox.com/sh/udnkp537pdw6kku/AACqvsPUW_JmEI_kVCNkIVuQa?dl=0) | [BaiduPan](https://pan.baidu.com/s/1WyB4QQyEnzi-TCfBphQHPg?pwd=i7fj) code:i7fj|
+|Our O-HAZE Results    |[Dropbox](https://www.dropbox.com/sh/lzuhwrw4gm5nb8j/AACImJSX02Beck8-T9Sy2Nega?dl=0) | [BaiduPan](https://pan.baidu.com/s/1plTFNpHQvI5PU30ignjUzA?pwd=7tzu) code:7tzu|
+
 
 ## Pre-trained Model
-Download the [pre-trained NH-HAZE model](https://www.dropbox.com/s/a1znnuhi0tmoown/NH-HAZE_params_0100000.pt?dl=0), put in `results/NH-HAZE/model/NH-HAZE_params_0100000.pt`
+Download the pre-trained NH-HAZE model [Dropbox](https://www.dropbox.com/s/a1znnuhi0tmoown/NH-HAZE_params_0100000.pt?dl=0) | [BaiduPan](https://pan.baidu.com/s/1cYIz8yk5r8Yvds-shdPSeg?pwd=hh81) code:hh81, put in `results/NH-HAZE/model/NH-HAZE_params_0100000.pt`
 
 ## Test
 ```
 python main_test.py --datasetpath [path_to_NH-HAZE dataset]
 ```
 
-### 2. [Fog Cityscapes](https://www.dropbox.com/sh/mc5ffqsnt4v51tb/AAA34D0md0arAtabonmVVn0Oa?dl=0)
+### 2. Fog Cityscapes [Dropbox](https://www.dropbox.com/sh/mc5ffqsnt4v51tb/AAA34D0md0arAtabonmVVn0Oa?dl=0) | [BaiduPan](https://pan.baidu.com/s/1vAk13UtgJErWmAbZLaPLJw?pwd=dfv2) code:dfv2
 ```
 ${FogRemoval}
 |-- Dataset_day
